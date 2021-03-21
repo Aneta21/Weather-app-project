@@ -1,1 +1,22 @@
+.app {
+  padding: 20px;
+  border: 1px solid #cdd0cb;
+  border-radius: 6px;
+}
+h1 {
+  margin-left: 10px;
+}
 
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  margin: 0 10px;
+  list-style: none;
+  color: #686d76;
+}
+.wrapper {
+  max-width: 600px;
+  margin: 40px auto;
+}
