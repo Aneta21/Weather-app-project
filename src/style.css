@@ -1,10 +1,11 @@
-.app {
-  padding: 20px;
-  border: 1px solid #cdd0cb;
-  border-radius: 6px;
+body {
+  background-image: url(forest.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 h1 {
   margin-left: 10px;
+  text-align: center;
 }
 
 ul {
@@ -14,9 +15,33 @@ ul {
 li {
   margin: 0 10px;
   list-style: none;
-  color: #686d76;
+  color: #4a4d53;
 }
 .wrapper {
   max-width: 600px;
-  margin: 40px auto;
+  margin: 200px auto;
+}
+.app {
+  padding: 20px;
+  border: 1px solid #cdd0cb;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+.overview {
+  margin-bottom: 10px;
+}
+.main-icon img {
+  margin-right: 15px;
+  margin-bottom: 43px;
+  height: 80px;
+}
+.main-icon .temperature {
+  font-size: 64px;
+  line-height: 1;
+  text-align: left;
+}
+.main-icon .units {
+  position: relative;
+  font-size: 16px;
+  top: -35px;
 }

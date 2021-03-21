@@ -18,17 +18,25 @@
       <div class="wrapper">
         <div class="app">
           <h1>Prague</h1>
-          <ul>
-            <li>Sunday 10:00</li>
-            <li>Sunny</li>
-          </ul>
+          <div class="overview">
+            <ul>
+              <li>Sunday 10:00</li>
+              <li>Sunny</li>
+            </ul>
+          </div>
           <div class="row">
             <div class="col-6">
-              <img
-                src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                alt="clouds"
-              />
-              5°C | °F
+              <div class="clearfix main-icon">
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                  alt="clouds"
+                  class="float-left"
+                />
+                <span class="float-left">
+                  <span class="temperature">5</span>
+                  <span class="units"> °C | <a href="#"> °F</a></span>
+                </span>
+              </div>
             </div>
             <div class="col-6">
               <ul>
@@ -40,7 +48,6 @@
             </div>
           </div>
         </div>
-
         <footer>
           <a
             href="https://github.com/Aneta21/Weather-app-project"
