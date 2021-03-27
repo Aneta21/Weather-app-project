@@ -45,3 +45,6 @@ li {
   font-size: 16px;
   top: -35px;
 }
+.description::first-letter {
+  text-transform: capitalize;
+}
