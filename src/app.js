@@ -38,9 +38,15 @@ function showTemperature(response) {
   windSpeed.innerHTML = Math.round(response.data.wind.speed);
   let dateTimeElement = document.querySelector("#date_time");
   dateTimeElement.innerHTML = dateTime(response.data.dt * 1000);
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 let apiKey = "065d55f0dc357d457b78c1ad371a7843";
 let units = "metric";
-let city = "San Francisco";
+let city = "Wanaka";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
 axios.get(apiUrl).then(showTemperature);
