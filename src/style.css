@@ -45,6 +45,18 @@ li {
   font-size: 16px;
   top: -35px;
 }
-.description::first-letter {
+.description:first-letter {
   text-transform: capitalize;
+}
+.form-control {
+  margin-left: 110px;
+  border: 1px solid #668983;
+}
+.btn-outline-secondary {
+  color: #668983;
+}
+.btn-outline-secondary:hover {
+  background-color: #668983;
+  color: rgba(237, 237, 220, 0.75);
+  transition: all 200ms ease-in-out;
 }
