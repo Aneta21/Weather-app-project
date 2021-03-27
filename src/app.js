@@ -45,8 +45,20 @@ function showTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
-let apiKey = "065d55f0dc357d457b78c1ad371a7843";
-let units = "metric";
-let city = "Wanaka";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
-axios.get(apiUrl).then(showTemperature);
+
+function searchCity(city) {
+  let apiKey = "065d55f0dc357d457b78c1ad371a7843";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
+  axios.get(apiUrl).then(showTemperature);
+}
+searchCity("Prague");
+// search form
+
+function submitCity(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#input");
+  searchCity(cityInput.value);
+}
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", submitCity);
