@@ -25,7 +25,8 @@ function dateTime(timestamp) {
 //curent weather in New York
 function showTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  celsiusTemp = response.data.main.temp;
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
   let cityName = document.querySelector("#city");
   cityName.innerHTML = response.data.name;
   let description = document.querySelector("#description");
@@ -53,7 +54,6 @@ function searchCity(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
   axios.get(apiUrl).then(showTemperature);
 }
-searchCity("Prague");
 
 function submitCity(event) {
   event.preventDefault();
@@ -80,3 +80,29 @@ function getCurrentLocation(event) {
 
 let current = document.querySelector("#current_location");
 current.addEventListener("click", getCurrentLocation);
+
+// change c to f
+function convertToFarenheit(event) {
+  event.preventDefault();
+  let farenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(farenheitTemp);
+}
+
+// change f to c
+
+function convertToCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
+}
+
+let farenheit = document.querySelector("#farenheit");
+farenheit.addEventListener("click", convertToFarenheit);
+
+let celsius = document.querySelector("#celsius");
+celsius.addEventListener("click", convertToCelsius);
+
+let celsiusTemp = null;
+
+searchCity("Prague");
