@@ -39,7 +39,7 @@ function showTemperature(response) {
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
   let apiKey = "065d55f0dc357d457b78c1ad371a7843";
@@ -75,7 +75,7 @@ function showForecast(response) {
     forecast = response.data.daily[index];
     forecastElement.innerHTML += `<div class="col-2 day">
     <h3>${formatDay(forecast.dt * 1000)}</h3><div class="forecast-icon">
-    <img src="http://openweathermap.org/img/wn/${
+    <img src="https://openweathermap.org/img/wn/${
       forecast.weather[0].icon
     }@2x.png" alt="${forecast.weather[0].description}" /></div>
     <div class="forecast-temp"><strong>${Math.round(
