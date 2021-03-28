@@ -27,7 +27,7 @@ li {
 footer {
   display: block;
   text-align: center;
-  color: rgba(237, 237, 220, 0.75);
+  color: rgba(237, 237, 220);
 }
 .github,
 .aneta {
@@ -61,6 +61,7 @@ footer {
   border: 1px solid #cdd0cb;
   border-radius: 6px;
   background-color: rgba(237, 237, 220, 0.75);
+  max-width: 100%;
 }
 .overview {
   font-size: 20px;
@@ -76,17 +77,19 @@ footer {
   position: relative;
 }
 .temperature {
-  font-size: 64px;
+  font-size: 60px;
   line-height: 1;
   text-align: left;
   position: relative;
+  margin-left: -5px;
 }
 .units {
   position: relative;
   top: -34px;
   font-size: 16px;
 }
-.description {
+.description,
+.date {
   font-size: 25px;
 }
 .description:first-letter {
@@ -130,6 +133,8 @@ footer {
   margin-left: -27px;
 }
 .forecast-temp {
-  font-size: 20px;
+  position: relative;
+  margin-left: -2px;
+  font-size: 18px;
   color: #1f323b;
 }
