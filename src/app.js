@@ -9,20 +9,17 @@ function dateTime(timestamp) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let day = days[date.getDay()];
-  return `${day} ${hours}:${minutes}`;
+
+  return `${formatDay(timestamp)} ${hours}:${minutes}`;
+}
+// day
+function formatDay(timestamp) {
+  let day = new Date(timestamp);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day.getDay()];
 }
 
-//curent weather in New York
+//curent weather
 function showTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   celsiusTemp = response.data.main.temp;
@@ -45,9 +42,13 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  let apiKey = "065d55f0dc357d457b78c1ad371a7843";
+  let units = "metric";
+  apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${response.data.coord.lat}&lon=${response.data.coord.lon}&exclude=current,minutely,hourly,alerts&units=${units}&appid=${apiKey}`;
+  axios.get(apiUrl).then(showForecast);
 }
-// search form
 
+// search form
 function searchCity(city) {
   let apiKey = "065d55f0dc357d457b78c1ad371a7843";
   let units = "metric";
@@ -63,6 +64,26 @@ function submitCity(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", submitCity);
 
+// forecast
+function showForecast(response) {
+  console.log(response.data);
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 1; index < 6; index++) {
+    forecast = response.data.daily[index];
+    forecastElement.innerHTML += `<div class="col-2 day">
+    <h3>${formatDay(forecast.dt * 1000)}</h3><div class="forecast-icon">
+    <img src="http://openweathermap.org/img/wn/${
+      forecast.weather[0].icon
+    }@2x.png" alt="${forecast.weather[0].description}" /></div>
+    <div class="forecast-temp"><strong>${Math.round(
+      forecast.temp.max
+    )}</strong> | ${Math.round(forecast.temp.min)} </div>
+  </div>`;
+  }
+}
 // current location
 function handlePosition(position) {
   let lat = position.coords.latitude;
@@ -90,9 +111,7 @@ function convertToFarenheit(event) {
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(farenheitTemp);
 }
-
 // change f to c
-
 function convertToCelsius(event) {
   event.preventDefault();
   celsius.classList.add("active");

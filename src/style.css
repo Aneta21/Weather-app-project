@@ -72,3 +72,14 @@ li {
   color: #4a4d53;
   text-decoration: none;
 }
+.day {
+  position: relative;
+  margin-left: 19px;
+}
+.forecast-icon {
+  position: relative;
+  margin-left: -27px;
+}
+.forecast-temp {
+  font-size: 20px;
+}
