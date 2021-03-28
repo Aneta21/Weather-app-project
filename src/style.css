@@ -45,7 +45,7 @@ footer {
 .details {
   font-weight: 700;
   margin-top: 20px;
-  margin-left: 20px;
+  margin-left: 67px;
 }
 .temperature {
   color: #1f323b;
@@ -83,8 +83,11 @@ footer {
 }
 .units {
   position: relative;
-  top: -31px;
+  top: -34px;
   font-size: 16px;
+}
+.description {
+  font-size: 25px;
 }
 .description:first-letter {
   text-transform: capitalize;
