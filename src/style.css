@@ -60,3 +60,15 @@ li {
   color: rgba(237, 237, 220, 0.75);
   transition: all 200ms ease-in-out;
 }
+.units {
+  text-decoration: none;
+}
+.units .active {
+  color: #000;
+  cursor: default;
+  text-decoration: none;
+}
+.units .active:hover {
+  color: #4a4d53;
+  text-decoration: none;
+}

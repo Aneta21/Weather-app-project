@@ -84,6 +84,8 @@ current.addEventListener("click", getCurrentLocation);
 // change c to f
 function convertToFarenheit(event) {
   event.preventDefault();
+  celsius.classList.remove("active");
+  farenheit.classList.add("active");
   let farenheitTemp = (celsiusTemp * 9) / 5 + 32;
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(farenheitTemp);
@@ -93,6 +95,8 @@ function convertToFarenheit(event) {
 
 function convertToCelsius(event) {
   event.preventDefault();
+  celsius.classList.add("active");
+  farenheit.classList.remove("active");
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemp);
 }
